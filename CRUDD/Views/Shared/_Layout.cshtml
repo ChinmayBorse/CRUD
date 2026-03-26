@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CRUDD</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CRUDD.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CRUDD</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Confirm before deleting a record
+        document.addEventListener("DOMContentLoaded", function () {
+            const deleteForms = document.querySelectorAll("form[action*='DeleteConfirmed']");
+            deleteForms.forEach(form => {
+                form.addEventListener("submit", function (e) {
+                    const confirmed = confirm("Are you sure you want to delete this user?");
+                    if (!confirmed) e.preventDefault();
+                });
+            });
+
+            // Phone number validation: limit to 10 digits
+            const phoneInputs = document.querySelectorAll("input[type='tel'], input[name*='phone']");
+            phoneInputs.forEach(input => {
+                input.addEventListener("input", () => {
+                    input.value = input.value.replace(/\D/g, "").slice(0, 10); // digits only, max 10
+                });
+            });
+
+            // Fade out success message
+            const successMsg = document.querySelector(".alert-success");
+            if (successMsg) {
+                setTimeout(() => {
+                    successMsg.style.transition = "opacity 1s ease";
+                    successMsg.style.opacity = "0";
+                    setTimeout(() => successMsg.remove(), 1000);
+                }, 3000); // 3 seconds
+            }
+
+            // Toggle a section (for advanced filters or extra options)
+            const toggleBtn = document.getElementById("toggleSectionBtn");
+            const section = document.getElementById("toggleSection");
+            if (toggleBtn && section) {
+                toggleBtn.addEventListener("click", () => {
+                    section.classList.toggle("hidden");
+                });
+            }
+        });
+    </script>
+    <button id="toggleTheme" class="btn btn-sm btn-primary" style="position: fixed; top: 10px; right: 10px; z-index: 9999;">
+        Toggle Theme
+    </button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const body = document.body;
+            const toggleBtn = document.getElementById("toggleTheme");
+
+            if (localStorage.getItem("theme") === "container-dark") {
+                body.classList.add("container-dark");
+            }
+
+            toggleBtn.addEventListener("click", () => {
+                body.classList.toggle("container-dark");
+
+                if (body.classList.contains("container-dark")) {
+                    localStorage.setItem("theme", "container-dark");
+                } else {
+                    localStorage.setItem("theme", "light");
+                }
+            });
+        });
+    </script>
+
+
+
+
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

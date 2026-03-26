@@ -1,0 +1,167 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* General Page Styling */
+/* Apply gradient background to entire body */
+body {
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Center page content and add padding */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    border-radius: 12px;
+}
+
+/* Style for headings */
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+/* Button styles */
+.btn {
+    border: none;
+    padding: 10px 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-create {
+    background-color: #28a745;
+    color: white;
+}
+
+    .btn-create:hover {
+        background-color: #218838;
+    }
+
+.btn-edit {
+    background-color: #17a2b8;
+    color: white;
+}
+
+    .btn-edit:hover {
+        background-color: #138496;
+    }
+
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+
+    .btn-delete:hover {
+        background-color: #c82333;
+    }
+
+.btn-details {
+    background-color: #6c757d;
+    color: white;
+}
+
+    .btn-details:hover {
+        background-color: #5a6268;
+    }
+
+/* Links in table */
+a.btn {
+    margin-right: 6px;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #2a5298);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+button, .btn {
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+    button:hover, .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+/* Smooth background transition */
+/* Base layout remains white */
+body {
+    background: #1e3c72;
+    color: #000;
+    transition: all 0.4s ease;
+}
+
+/* Only theme the container (records panel, etc.) */
+.container-theme .container {
+    background: linear-gradient(-45deg, #e0f7fa, #d1c4e9, #f3e5f5, #e0f7fa);
+    background-size: 400% 400%;
+    animation: containerGradientMove 15s ease infinite;
+    color: #333;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes containerGradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+

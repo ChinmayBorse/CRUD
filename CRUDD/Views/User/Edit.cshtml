@@ -1,0 +1,29 @@
+@model CRUDD.Models.Users
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<h1>Edit User</h1>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="user_Id" />
+    <div class="form-group">
+        <label asp-for="username"></label>
+        <input asp-for="username" class="form-control" />
+        <span asp-validation-for="username" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="email"></label>
+        <input asp-for="email" class="form-control" />
+        <span asp-validation-for="email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="phone"></label>
+        <input asp-for="phone" class="form-control" />
+        <span asp-validation-for="phone" class="text-danger"></span>
+    </div> <br>
+    <button type="submit" class="btn btn-primary">Save</button> |
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+
+</form>
